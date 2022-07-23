@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { BrowserRouter , Routes , Route } from 'react-router-dom'
+import Navi from './components/Navi'
+import Faq from './components/Faq'
+import About from './components/About'
+import Fetch from './components/Fetch'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+
+class App extends React.Component{
+
+
+
+
+
+
+render(){
+  return(
+     <BrowserRouter>
+    <Navi/>
+        <Routes>
+      <Route path='/' element={<Fetch/>}/>
+      <Route path='/about' element={<About/>}/>
+      <Route path='/faq' element={<Faq/>}/>
+    </Routes>
+  </BrowserRouter>
+    )
+
+  }
 }
 
 export default App;

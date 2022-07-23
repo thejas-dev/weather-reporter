@@ -1,0 +1,192 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Stylish&display=swap');
+.text{
+	padding-top: 70px;
+	height: 100%;
+	color: white;
+	 font-family: 'Stylish', sans-serif; 
+	 font-size: 25px;
+	
+
+}
+.body-default{
+	background-color: gray;
+}
+.body-snow{
+	background: url(../images/0&10.jpg);
+	background-size: cover;
+
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.body-cool{
+	background: url(../images/10&20.jpg);
+	background-size: cover;
+
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.body-cool2{
+	background: url(../images/20&30.jpeg);
+	background-size: cover;
+
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.body-hot{
+	background: url(../images/30&36.jpg);
+	background-size: cover;
+
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.body-hot2{
+	background: url(../images/36&40.jpg);
+	background-size: cover;
+
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.body-vhot{
+	background: url(../images/40&45.jpg);
+	background-size: cover;
+
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.body-vhot2{
+	background: url(../images/45&50.jpg);
+	background-size: cover;
+
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.body-mist{
+	background: url(../images/mist.jpg);
+	background-size: cover;
+
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.body-rain{
+	background: url(../images/rain.jpg);
+	background-size: cover;
+
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.main{
+	min-height: 100vh;
+	background-image: linear-gradient(to bottom , rgb(0,0,0,0.2), rgb(0,0,0,0.75));
+
+}
+
+.search-bar{
+	margin-top:20px;
+	opacity:90%;
+	text-align:center;
+	font-size:20px;
+	display: block;
+	border-radius:10px;
+	width: 80%;
+	height: 45px;
+	border: none;
+	background:none;
+	color: #313131;
+	outline: none;
+	background-color: rgba(255,255,255,0.75);
+	box-shadow: 2px 5px 5px rgba(250, 7, 218,0.5)
+
+}
+.cast-box{
+
+		margin-top: 40px;
+		color: white;
+}
+.search-bar:focus{
+	background-color: rgba(255,255,255,0.9);
+	box-shadow: 2px 5px 5px rgba(250, 7, 218,0.8)
+}
+
+.location{
+	font-size: 35px;
+	font-weight: 500;
+	text-align: center;
+	font-family: 'Stylish', sans-serif; 
+	text-shadow: 3px 3px rgba(50,50,70,0.5);
+}
+.date{
+	font-size: 30px;
+	font-weight: 300;
+	font-style: italic;
+	text-align: center;
+	font-family: 'Stylish', sans-serif; 
+	text-shadow: 3px 3px rgba(50,50,70,0.5);
+	margin-top: 15px;
+}
+.weather-box{
+	text-align: center;
+	margin-top: 90px
+}
+.weather-box .degree{
+	
+	display: inline;
+	
+	background-color: rgb(255,255,255,0.2);
+
+	border-radius: 16px;
+	padding: 5px 25px;
+	color: #fff;
+	font-size: 100px;
+	font-weight: 900;
+	text-shadow: 6px 6px 6px rgba(50,50,70,0.54);
+	box-shadow :3px 6px 5px rgba(0,0,0,0.2)
+}
+
+.weather-box .cloud{
+	color: #fff;
+	font-size: 48px;
+	font-weight: 700;
+	text-shadow: 3px 3px rgba(50,50,70,0.5);
+	margin-top: 35px;
+}
+
+
+.more-info{
+	display: flex;
+	justify-content: space-around;
+	margin-top: 25px;
+}
+
+.humidity{
+	font-size:15px;
+	font-weight: 200;
+		text-align: center;
+	font-family: 'Bree Serif', serif;
+
+}
+.wind{
+	font-size:15px;
+	font-weight: 200;
+	text-align: center;
+	font-family: 'Bree Serif', serif;
+	
+}
+.feels{
+	font-family: Times new roman;
+
+}
+.body-faq{
+	height: 100vh;
+	background: url(../images/20&30.jpeg);
+	background-size: cover;
+	padding-top: 25px;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+@media(max-width: 568px){
+	.clouds{
+		font-size: 25px
+	}
+	
+}
