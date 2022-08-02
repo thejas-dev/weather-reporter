@@ -16,7 +16,7 @@ function Fetch(){
 const [search,setSearch] = useState('San francisco');
 const [info,setInfo] = useState({});
 const [bg,setBg] = useState('');
-const [city,setCity] = useState('');
+const [city,setCity] = useState('hawaii');
 
 
 const searchdata = evt =>{
@@ -125,22 +125,28 @@ if(navigator.geolocation){
 	}else{
 		console.log("browser not supported")
 	}
-	let city = null
+	
 	function ShowPosition(position){
-		let lat = position.coords.lattitude;
+		let lat = position.coords.latitude;
 		let lon = position.coords.longitude;
-		fetch(`http://api.openweathermap.org/geo/1.0/reverse?lat=51.5098&lon=-0.1180&limit=1&appid=${api.key}`)
+		console.log(lat)
+		console.log(lon)
+		fetch(`http://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=1&appid=${api.key}`)
 		.then(res => res.json())
 		.then(result => {
 			setCity(result[0].name)
+			console.log(result[0].name)
+			fetch(`${api.base}weather?q=${result[0].name}&units=metric&APPID=${api.key}`)
+			.then(res=>res.json())
+			.then(result=>{
+				setInfo(result)
+				console.log(result)
+			})
 		})
-		.then(fetch(`${api.base}weather?q=${{city}}&units=metric&APPID=${api.key}`)
-		.then(res=>res.json())
-		.then(result=>{
-			setInfo(result)
-		}))
-		
 	}
+		
+		
+	
 	
 	
 
