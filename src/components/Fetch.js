@@ -137,12 +137,12 @@ setTimeout(()=>{
 		let lon = position.coords.longitude;
 		console.log(lat)
 		console.log(lon)
-		fetch(`http://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=1&appid=${api.key}`)
+		fetch(`http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${api.key}`)
 		.then(res => res.json())
 		.then(result => {
-			setCity(result[0].name)
-			console.log(result[0].name)
-			fetch(`${api.base}weather?q=${result[0].name}&units=metric&APPID=${api.key}`)
+			setCity(result.city.name)
+			console.log(result)
+			fetch(`${api.base}weather?q=${result.city.name}&units=metric&APPID=${api.key}`)
 			.then(res=>res.json())
 			.then(result=>{
 				setInfo(result)
