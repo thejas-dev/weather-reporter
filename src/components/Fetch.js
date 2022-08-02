@@ -9,6 +9,9 @@ const api = {
 	base : "https://api.openweathermap.org/data/2.5/"
 }
 
+if(window.navigator.geolocation){
+	console.log("location accessed")
+}
 
 
 function Fetch(){
