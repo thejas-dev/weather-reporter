@@ -123,13 +123,16 @@ useEffect(()=>{
   rootEl: document.getElementById("alan-btn"),
   });
 
-if(navigator.geolocation){
+setTimeout(()=>{
+	if(navigator.geolocation){
 		navigator.geolocation.getCurrentPosition(ShowPosition)
 	}else{
 		console.log("browser not supported")
 	}
 	
-	function ShowPosition(position){
+	 function ShowPosition(position){
+
+		
 		let lat = position.coords.latitude;
 		let lon = position.coords.longitude;
 		console.log(lat)
@@ -147,6 +150,8 @@ if(navigator.geolocation){
 			})
 		})
 	}
+},7000)
+
 		
 		
 	
