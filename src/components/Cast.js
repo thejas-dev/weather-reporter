@@ -120,7 +120,7 @@ if(typeof props.info.name != "undefined"){
 				<figure>
 				<img src={Speed}  alt='not found' style={{height:'50px',borderRadius:'60px'}} />
 				<figcaption>Speed</figcaption>
-				<figcaption>~</figcaption>
+				<figcaption>{gospeed}</figcaption>
 				</figure>
 			</div>
 			<div className='humidity'>
