@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import './Style.css'
 import Cast from './Cast'
+import alanBtn from "@alan-ai/alan-sdk-web";
 
 // eslint-disable-next-line
 const api = {
@@ -15,6 +16,8 @@ function Fetch(){
 const [search,setSearch] = useState('San francisco');
 const [info,setInfo] = useState({});
 const [bg,setBg] = useState('');
+const [city,setCity] = useState('');
+
 
 const searchdata = evt =>{
 	if(evt.key==="Enter"){
@@ -93,16 +96,73 @@ useEffect(()=>{
 			}
 			
 		});
+		  
+
+	var alanBtnInstance = alanBtn({
+    key: "d77f45cfff0a48ee66a2b549ebb87b342e956eca572e1d8b807a3e2338fdd0dc/stage",
+    onCommand: (commandData) => {
+      if (commandData.command === 'showWeather') {
+      	console.log(commandData);
+        // Call the client code that will react to the received command
+        setInfo(commandData);
+      }
+    },
+    onButtonState: async function(status) {
+    var greetingWasSaid = false;
+    if (status === 'ONLINE') {
+      if (!this.greetingWasSaid) {
+        await alanBtnInstance.activate();
+        alanBtnInstance.playText("Hello! I'm Hari. How can I help you?");
+        this.greetingWasSaid = true
+      }
+    }
+  },
+  rootEl: document.getElementById("alan-btn"),
+  });
+
+if(navigator.geolocation){
+		navigator.geolocation.getCurrentPosition(ShowPosition)
+	}else{
+		console.log("browser not supported")
+	}
+	let city = null
+	function ShowPosition(position){
+		let lat = position.coords.lattitude;
+		let lon = position.coords.longitude;
+		fetch(`http://api.openweathermap.org/geo/1.0/reverse?lat=51.5098&lon=-0.1180&limit=1&appid=${api.key}`)
+		.then(res => res.json())
+		.then(result => {
+			setCity(result[0].name)
+		})
+		.then(fetch(`${api.base}weather?q=${city}&units=metric&APPID=${api.key}`)
+		.then(res=>res.json())
+		.then(result=>{
+			setInfo(result)
+		}))
+		
+	}
+	
+	
+
+
+		  
 },[])
 
 
 
 
+	
+
+
+	
+
+
 return(
 
-<div className={bg} >
+<div className={bg}>
 <div className='main' >
 	<div style={{paddingTop:'60px'}} >
+		
 		<center><label className='text'>Enter Your City Name</label></center>
 		<center><div >
 			<input className='search-bar'

@@ -1,12 +1,13 @@
-import React from 'react'
+import React,{useState} from 'react'
 import './Style.css'
 import Wind from '../images/wind.jpg'
 import Windd from '../images/windd.jpg'
 import Humidity from '../images/humidity.jpg'
+import Speed from '../images/speedometer.webp'
 
 
 function Cast(props){
-
+	const [gospeed,setGospeed]=useState()
 	const dateBuilder = (d) =>{
 		let months = [
 			"January","February","March","April","May","June","July","August","September","October","November",
@@ -21,6 +22,21 @@ function Cast(props){
 		return `${day} ${date} ${month}${year}`
 
 	}
+	if(navigator.geolocation){
+		navigator.geolocation.watchPosition(ShowPosition)
+	}else{
+		console.log('Browser Not Supported')
+	}
+	function ShowPosition(position){
+	
+		let y= position.coords.speed;
+		if(y===null){
+			setGospeed("Browser Not Supported")
+		}else{
+			setGospeed(y + "km/h" )
+		}
+
+   }
 
 if(typeof props.info.name != "undefined"){
 	let speed = props.info.wind.speed * 3.6
@@ -63,6 +79,13 @@ if(typeof props.info.name != "undefined"){
 			</div>
 			<div className='humidity'>
 				<figure>
+				<img src={Speed}  alt='not found' style={{height:'50px',borderRadius:'60px'}} />
+				<figcaption>Speed</figcaption>
+				<figcaption>{gospeed}</figcaption>
+				</figure>
+			</div>
+			<div className='humidity'>
+				<figure>
 				<img src={Humidity}  alt='not found' style={{height:'50px',borderRadius:'60px'}} />
 				<figcaption>Humidity</figcaption>
 				<figcaption>{props.info.main.humidity}%</figcaption>
@@ -93,6 +116,7 @@ if(typeof props.info.name != "undefined"){
 				<figcaption>~</figcaption>
 				</figure>
 			</div>
+			<center><div id='speed'>{gospeed}</div></center>
 			<div className='humidity'>
 				<figure>
 				<img src={Humidity} alt='not found' style={{height:'50px',borderRadius:'60px'}} />
