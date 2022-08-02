@@ -29,7 +29,7 @@ function Cast(props){
 	}
 	function ShowPosition(position){
 	
-		let y= position.coords.speed;
+		let y= Math.round(position.coords.speed);
 		if(y===null){
 			setGospeed("Browser Not Supported")
 		}else{
