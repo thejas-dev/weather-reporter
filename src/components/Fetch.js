@@ -134,7 +134,7 @@ if(navigator.geolocation){
 		.then(result => {
 			setCity(result[0].name)
 		})
-		.then(fetch(`${api.base}weather?q=${city}&units=metric&APPID=${api.key}`)
+		.then(fetch(`${api.base}weather?q=${{city}}&units=metric&APPID=${api.key}`)
 		.then(res=>res.json())
 		.then(result=>{
 			setInfo(result)
