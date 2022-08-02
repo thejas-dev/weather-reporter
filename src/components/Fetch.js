@@ -112,7 +112,7 @@ useEffect(()=>{
     if (status === 'ONLINE') {
       if (!this.greetingWasSaid) {
         await alanBtnInstance.activate();
-        alanBtnInstance.playText("Hello! I'm Hari. How can I help you?");
+        alanBtnInstance.playText("Welcome To our Wenbite Sir! Dont Forget to give access to location for our site! How Can I help you?");
         this.greetingWasSaid = true
       }
     }
