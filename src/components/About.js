@@ -32,6 +32,7 @@ const About = ()=>{
                 <p style={stylexs}><b>Developed By Thejas , Weather Report Web App For Users To Know About Current Current Weather Of Any City In The World Easily ...Thank You! Dont Forget To Follow Us
 					Follow us In <a href={url}>Insta</a>
 					</b></p>
+					//done compiling
 			</div>
 
 		</div>
