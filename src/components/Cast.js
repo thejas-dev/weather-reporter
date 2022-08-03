@@ -59,7 +59,7 @@ if(typeof props.info.name != "undefined"){
 			</div>
 			<p className='feels'>Feels Like {props.info.main.feels_like}</p>
 			<div className='cloud'>
-				<p className='clouds'>{props.info.weather[0].description}</p>
+				<p className='clouds'>{props.info.weather[0].description.charAt(0).toUpperCase() + props.info.weather[0].description.slice(1)}</p>
 			</div>
 		</div>
 		<div className='more-info'>
