@@ -129,7 +129,7 @@ useEffect(()=>{
 			
 		});
 		  
-//d77f45cfff0a48ee66a2b549ebb87b342e956eca572e1d8b807a3e2338fdd0dc/stage
+
 	var alanBtnInstance = alanBtn({
     key: process.env.React_App_Alan_KEY ,
     onCommand: (commandData) => {
