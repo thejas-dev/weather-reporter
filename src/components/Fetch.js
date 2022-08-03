@@ -5,8 +5,8 @@ import alanBtn from "@alan-ai/alan-sdk-web";
 
 // eslint-disable-next-line
 const api = {
-	key : process.env.React_App_Weather_Key,
-	base : process.env.React_App_Weather_Base
+	key : "4fd239414e1c53315dd1cb53ed561e60",
+	base : "https://api.openweathermap.org/data/2.5/"
 }
 
 
@@ -131,7 +131,7 @@ useEffect(()=>{
 		  
 //d77f45cfff0a48ee66a2b549ebb87b342e956eca572e1d8b807a3e2338fdd0dc/stage
 	var alanBtnInstance = alanBtn({
-    key: process.env.React_App_Alan_KEY,
+    key: "d77f45cfff0a48ee66a2b549ebb87b342e956eca572e1d8b807a3e2338fdd0dc/stage",
     onCommand: (commandData) => {
       if (commandData.command === 'showWeather') {
       	
