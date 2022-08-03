@@ -106,7 +106,7 @@ useEffect(()=>{
       if (commandData.command === 'showWeather') {
       	console.log(commandData);
         // Call the client code that will react to the received command
-        setInfo(commandData.weatherData);
+        setInfo(commandData.weatherData.data);
       }
     },
     onButtonState: async function(status) {
