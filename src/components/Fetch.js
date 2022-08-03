@@ -5,8 +5,8 @@ import alanBtn from "@alan-ai/alan-sdk-web";
 
 // eslint-disable-next-line
 const api = {
-	key : "4fd239414e1c53315dd1cb53ed561e60",
-	base : "https://api.openweathermap.org/data/2.5/"
+	key : process.env.React_App_Weather_Key,
+	base : process.env.React_App_Weather_Base
 }
 
 
@@ -31,14 +31,7 @@ const searchdata = evt =>{
 		.then(result => {
 			setSearch('');
 			setInfo(result)
-			if(result.main.humidity>90 || result.weather[0].description==='heavy intensity rain' || result.weather[0].description==='light rain' || result.weather[0].description==='moderate rain'
-				|| result.weather[0].description==='very heavy rain'|| result.weather[0].description==='extreme rain'|| result.weather[0].description==='freezing rain' || result.weather[0].description==='light intensity shower rain'
-				 || result.weather[0].description==='shower rain' || result.weather[0].description==='ragged shower rain' || result.weather[0].description==='heavy intensity shower rain'){
-				setBg('body-rain')
-			}
-			if(result.main.temp<=10){
-				setBg('body-snow')
-			}
+			
 			if(result.main.temp>=10 && result.main.temp<=20){
 				setBg('body-cool')
 			}
@@ -56,6 +49,14 @@ const searchdata = evt =>{
 			}
 			if(result.main.temp>=45 && result.main.temp<=60){
 				setBg('body-vhot2')
+			}
+			if(result.main.humidity>90 || result.weather[0].description==='heavy intensity rain' || result.weather[0].description==='light rain' || result.weather[0].description==='moderate rain'
+				|| result.weather[0].description==='very heavy rain'|| result.weather[0].description==='extreme rain'|| result.weather[0].description==='freezing rain' || result.weather[0].description==='light intensity shower rain'
+				 || result.weather[0].description==='shower rain' || result.weather[0].description==='ragged shower rain' || result.weather[0].description==='heavy intensity shower rain'){
+				setBg('body-rain')
+			}
+			if(result.main.temp<=10){
+				setBg('body-snow')
 			}
 			if( result.weather[0].description==='Mist' || result.weather[0].description==='Smoke' || result.weather[0].description==='Haze' || result.weather[0].description==='Ash'
 			 || result.weather[0].description==='Dust' || result.weather[0].description==='Fog' || result.weather[0].description==='Sand' || result.weather[0].description==='Squall'
@@ -83,14 +84,7 @@ useEffect(()=>{
 		.then(res => res.json())
 		.then(result => {
 			setInfo(result)
-			if(result.main.humidity>90 || result.weather[0].description==='heavy intensity rain' || result.weather[0].description==='light rain' || result.weather[0].description==='moderate rain'
-				|| result.weather[0].description==='very heavy rain'|| result.weather[0].description==='extreme rain'|| result.weather[0].description==='freezing rain' || result.weather[0].description==='light intensity shower rain'
-				 || result.weather[0].description==='shower rain' || result.weather[0].description==='ragged shower rain' || result.weather[0].description==='heavy intensity shower rain'){
-				setBg('body-rain')
-			}
-			if(result.main.temp<=10){
-				setBg('body-snow')
-			}
+			
 			if(result.main.temp>=10 && result.main.temp<=20){
 				setBg('body-cool')
 			}
@@ -108,6 +102,14 @@ useEffect(()=>{
 			}
 			if(result.main.temp>=45 && result.main.temp<=60){
 				setBg('body-vhot2')
+			}
+			if(result.main.humidity>90 || result.weather[0].description==='heavy intensity rain' || result.weather[0].description==='light rain' || result.weather[0].description==='moderate rain'
+				|| result.weather[0].description==='very heavy rain'|| result.weather[0].description==='extreme rain'|| result.weather[0].description==='freezing rain' || result.weather[0].description==='light intensity shower rain'
+				 || result.weather[0].description==='shower rain' || result.weather[0].description==='ragged shower rain' || result.weather[0].description==='heavy intensity shower rain'){
+				setBg('body-rain')
+			}
+			if(result.main.temp<=10){
+				setBg('body-snow')
 			}
 			if( result.weather[0].description==='Mist' || result.weather[0].description==='Smoke' || result.weather[0].description==='Haze' || result.weather[0].description==='Ash'
 			 || result.weather[0].description==='Dust' || result.weather[0].description==='Fog' || result.weather[0].description==='Sand' || result.weather[0].description==='Squall'
@@ -127,22 +129,15 @@ useEffect(()=>{
 			
 		});
 		  
-
+//d77f45cfff0a48ee66a2b549ebb87b342e956eca572e1d8b807a3e2338fdd0dc/stage
 	var alanBtnInstance = alanBtn({
-    key: "d77f45cfff0a48ee66a2b549ebb87b342e956eca572e1d8b807a3e2338fdd0dc/stage",
+    key: process.env.React_App_Alan_KEY,
     onCommand: (commandData) => {
       if (commandData.command === 'showWeather') {
-      	console.log(commandData);
+      	
         // Call the client code that will react to the received command
         setInfo(commandData.weatherData.data);
-        if(commandData.weatherData.data.main.humidity>90 || commandData.weatherData.data.weather[0].description==='heavy intensity rain' || commandData.weatherData.data.weather[0].description==='light rain' || commandData.weatherData.data.weather[0].description==='moderate rain'
-				|| commandData.weatherData.data.weather[0].description==='very heavy rain'|| commandData.weatherData.data.weather[0].description==='extreme rain'|| commandData.weatherData.data.weather[0].description==='freezing rain' || commandData.weatherData.data.weather[0].description==='light intensity shower rain'
-				 || commandData.weatherData.data.weather[0].description==='shower rain' || commandData.weatherData.data.weather[0].description==='ragged shower rain' || commandData.weatherData.data.weather[0].description==='heavy intensity shower rain'){
-				setBg('body-rain')
-			}
-        if(commandData.weatherData.data.main.temp<=10){
-				setBg('body-snow')
-			}
+        
 			if(commandData.weatherData.data.main.temp>=10 && commandData.weatherData.data.main.temp<=20){
 				setBg('body-cool')
 			}
@@ -160,6 +155,14 @@ useEffect(()=>{
 			}
 			if(commandData.weatherData.data.main.temp>=45 && commandData.weatherData.data.main.temp<=60){
 				setBg('body-vhot2')
+			}
+			if(commandData.weatherData.data.main.humidity>90 || commandData.weatherData.data.weather[0].description==='heavy intensity rain' || commandData.weatherData.data.weather[0].description==='light rain' || commandData.weatherData.data.weather[0].description==='moderate rain'
+				|| commandData.weatherData.data.weather[0].description==='very heavy rain'|| commandData.weatherData.data.weather[0].description==='extreme rain'|| commandData.weatherData.data.weather[0].description==='freezing rain' || commandData.weatherData.data.weather[0].description==='light intensity shower rain'
+				 || commandData.weatherData.data.weather[0].description==='shower rain' || commandData.weatherData.data.weather[0].description==='ragged shower rain' || commandData.weatherData.data.weather[0].description==='heavy intensity shower rain'){
+				setBg('body-rain')
+			}
+        if(commandData.weatherData.data.main.temp<=10){
+				setBg('body-snow')
 			}
 			if( commandData.weatherData.data.weather[0].description==='Mist' || commandData.weatherData.data.weather[0].description==='Smoke' || commandData.weatherData.data.weather[0].description==='Haze' || commandData.weatherData.data.weather[0].description==='Ash'
 			 || commandData.weatherData.data.weather[0].description==='Dust' || commandData.weatherData.data.weather[0].description==='Fog' || commandData.weatherData.data.weather[0].description==='Sand' || commandData.weatherData.data.weather[0].description==='Squall'
@@ -210,14 +213,7 @@ useEffect(()=>{
 			.then(res => res.json())
 			.then(result => {
 			setInfo(result)	
-			if(result.main.humidity>90 || result.weather[0].description==='heavy intensity rain' || result.weather[0].description==='light rain' || result.weather[0].description==='moderate rain'
-				|| result.weather[0].description==='very heavy rain'|| result.weather[0].description==='extreme rain'|| result.weather[0].description==='freezing rain' || result.weather[0].description==='light intensity shower rain'
-				 || result.weather[0].description==='shower rain' || result.weather[0].description==='ragged shower rain' || result.weather[0].description==='heavy intensity shower rain'){
-				setBg('body-rain')
-			}
-			if(result.main.temp<=10){
-				setBg('body-snow')
-			}
+			
 			if(result.main.temp>=10 && result.main.temp<=20){
 				setBg('body-cool')
 			}
@@ -235,6 +231,14 @@ useEffect(()=>{
 			}
 			if(result.main.temp>=45 && result.main.temp<=60){
 				setBg('body-vhot2')
+			}
+			if(result.main.humidity>90 || result.weather[0].description==='heavy intensity rain' || result.weather[0].description==='light rain' || result.weather[0].description==='moderate rain'
+				|| result.weather[0].description==='very heavy rain'|| result.weather[0].description==='extreme rain'|| result.weather[0].description==='freezing rain' || result.weather[0].description==='light intensity shower rain'
+				 || result.weather[0].description==='shower rain' || result.weather[0].description==='ragged shower rain' || result.weather[0].description==='heavy intensity shower rain'){
+				setBg('body-rain')
+			}
+			if(result.main.temp<=10){
+				setBg('body-snow')
 			}
 			if( result.weather[0].description==='Mist' || result.weather[0].description==='Smoke' || result.weather[0].description==='Haze' || result.weather[0].description==='Ash'
 			 || result.weather[0].description==='Dust' || result.weather[0].description==='Fog' || result.weather[0].description==='Sand' || result.weather[0].description==='Squall'
@@ -301,3 +305,5 @@ return(
 
 
 export default Fetch;
+
+

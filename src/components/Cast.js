@@ -93,7 +93,14 @@ if(typeof props.info.name != "undefined"){
 			</div>
 
 		</div>
-
+		<div className='ai-info'>
+			<center><div className='ai-box'>
+				<p className='ai-head'>How To Use Voice Assistant?</p>
+				<span className='ai-info-try'>Try Asking</span>
+				<p className='ai-info-text'>Is It Going To Rain Tomorrow In Chennai? <br/>
+				What is Weather Today in Gujarat?</p>
+			</div></center>
+		</div>
 </div>
 		)
 }else{
