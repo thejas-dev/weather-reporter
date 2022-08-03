@@ -144,7 +144,7 @@ function ShowPosition(position){
 }
 useEffect(()=>{
 		if(lat!=null){
-		fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${api.key}`)
+		fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${api.key}`)
 		.then(res => res.json())
 		.then(result => {
 			setInfo(result)	
