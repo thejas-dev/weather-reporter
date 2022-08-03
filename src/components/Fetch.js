@@ -149,6 +149,33 @@ useEffect(()=>{
 			.then(res => res.json())
 			.then(result => {
 			setInfo(result)	
+			if(result.main.temp>=0 && result.main.temp<=10){
+				setBg('body-snow')
+			}
+			if(result.main.temp>=10 && result.main.temp<=20){
+				setBg('body-cool')
+			}
+			if(result.main.temp>=20 && result.main.temp<=30){
+				setBg('body-cool2')
+			}
+			if(result.main.temp>=30 && result.main.temp<=35){
+				setBg('body-hot')
+			}
+			if(result.main.temp>=35 && result.main.temp<=40){
+				setBg('body-hot2')
+			}
+			if(result.main.temp>=40 && result.main.temp<=45){
+				setBg('body-vhot')
+			}
+			if(result.main.temp>=45 && result.main.temp<=60){
+				setBg('body-vhot2')
+			}
+			if( result.weather[0].description==='mist'){
+				setBg('body-mist')
+			}
+			if(result.main.humidity>90 || result.weather[0].description==='heavy intensity rain' ){
+				setBg('body-rain')
+			}
 		})
 		},3000)
 		
