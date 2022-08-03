@@ -31,6 +31,11 @@ const searchdata = evt =>{
 		.then(result => {
 			setSearch('');
 			setInfo(result)
+			if(result.main.humidity>90 || result.weather[0].description==='heavy intensity rain' || result.weather[0].description==='light rain' || result.weather[0].description==='moderate rain'
+				|| result.weather[0].description==='very heavy rain'|| result.weather[0].description==='extreme rain'|| result.weather[0].description==='freezing rain' || result.weather[0].description==='light intensity shower rain'
+				 || result.weather[0].description==='shower rain' || result.weather[0].description==='ragged shower rain' || result.weather[0].description==='heavy intensity shower rain'){
+				setBg('body-rain')
+			}
 			if(result.main.temp<=10){
 				setBg('body-snow')
 			}
@@ -57,11 +62,7 @@ const searchdata = evt =>{
 			  || result.weather[0].description==='Tornado' ){
 				setBg('body-mist')
 			}
-			if(result.main.humidity>90 || result.weather[0].description==='heavy intensity rain' || result.weather[0].description==='light rain' || result.weather[0].description==='moderate rain'
-				|| result.weather[0].description==='very heavy rain'|| result.weather[0].description==='extreme rain'|| result.weather[0].description==='freezing rain' || result.weather[0].description==='light intensity shower rain'
-				 || result.weather[0].description==='shower rain' || result.weather[0].description==='ragged shower rain' || result.weather[0].description==='heavy intensity shower rain'){
-				setBg('body-rain')
-			}
+			
 			if(result.weather[0].description==='drizzle' || result.weather[0].description==='light intensity drizzle' || result.weather[0].description==='drizzle rain' || result.weather[0].description==='heavy intensity drizzle'
 				 || result.weather[0].description==='light intensity drizzle rain' || result.weather[0].description==='shower rain and drizzle' || result.weather[0].description==='heavy shower rain and drizzle' || result.weather[0].description==='shower drizzle'){
 				setBg('body-drizzle')
@@ -82,6 +83,11 @@ useEffect(()=>{
 		.then(res => res.json())
 		.then(result => {
 			setInfo(result)
+			if(result.main.humidity>90 || result.weather[0].description==='heavy intensity rain' || result.weather[0].description==='light rain' || result.weather[0].description==='moderate rain'
+				|| result.weather[0].description==='very heavy rain'|| result.weather[0].description==='extreme rain'|| result.weather[0].description==='freezing rain' || result.weather[0].description==='light intensity shower rain'
+				 || result.weather[0].description==='shower rain' || result.weather[0].description==='ragged shower rain' || result.weather[0].description==='heavy intensity shower rain'){
+				setBg('body-rain')
+			}
 			if(result.main.temp<=10){
 				setBg('body-snow')
 			}
@@ -108,11 +114,7 @@ useEffect(()=>{
 			  || result.weather[0].description==='Tornado' ){
 				setBg('body-mist')
 			}
-			if(result.main.humidity>90 || result.weather[0].description==='heavy intensity rain' || result.weather[0].description==='light rain' || result.weather[0].description==='moderate rain'
-				|| result.weather[0].description==='very heavy rain'|| result.weather[0].description==='extreme rain'|| result.weather[0].description==='freezing rain' || result.weather[0].description==='light intensity shower rain'
-				 || result.weather[0].description==='shower rain' || result.weather[0].description==='ragged shower rain' || result.weather[0].description==='heavy intensity shower rain'){
-				setBg('body-rain')
-			}
+			
 			if(result.weather[0].description==='drizzle' || result.weather[0].description==='light intensity drizzle' || result.weather[0].description==='drizzle rain' || result.weather[0].description==='heavy intensity drizzle'
 				 || result.weather[0].description==='light intensity drizzle rain' || result.weather[0].description==='shower rain and drizzle' || result.weather[0].description==='heavy shower rain and drizzle' || result.weather[0].description==='shower drizzle'){
 				setBg('body-drizzle')
@@ -133,6 +135,11 @@ useEffect(()=>{
       	console.log(commandData);
         // Call the client code that will react to the received command
         setInfo(commandData.weatherData.data);
+        if(commandData.weatherData.data.main.humidity>90 || commandData.weatherData.data.weather[0].description==='heavy intensity rain' || commandData.weatherData.data.weather[0].description==='light rain' || commandData.weatherData.data.weather[0].description==='moderate rain'
+				|| commandData.weatherData.data.weather[0].description==='very heavy rain'|| commandData.weatherData.data.weather[0].description==='extreme rain'|| commandData.weatherData.data.weather[0].description==='freezing rain' || commandData.weatherData.data.weather[0].description==='light intensity shower rain'
+				 || commandData.weatherData.data.weather[0].description==='shower rain' || commandData.weatherData.data.weather[0].description==='ragged shower rain' || commandData.weatherData.data.weather[0].description==='heavy intensity shower rain'){
+				setBg('body-rain')
+			}
         if(commandData.weatherData.data.main.temp<=10){
 				setBg('body-snow')
 			}
@@ -159,11 +166,7 @@ useEffect(()=>{
 			  || commandData.weatherData.data.weather[0].description==='Tornado' ){
 				setBg('body-mist')
 			}
-			if(commandData.weatherData.data.main.humidity>90 || commandData.weatherData.data.weather[0].description==='heavy intensity rain' || commandData.weatherData.data.weather[0].description==='light rain' || commandData.weatherData.data.weather[0].description==='moderate rain'
-				|| commandData.weatherData.data.weather[0].description==='very heavy rain'|| commandData.weatherData.data.weather[0].description==='extreme rain'|| commandData.weatherData.data.weather[0].description==='freezing rain' || commandData.weatherData.data.weather[0].description==='light intensity shower rain'
-				 || commandData.weatherData.data.weather[0].description==='shower rain' || commandData.weatherData.data.weather[0].description==='ragged shower rain' || commandData.weatherData.data.weather[0].description==='heavy intensity shower rain'){
-				setBg('body-rain')
-			}
+			
 			if(commandData.weatherData.data.weather[0].description==='drizzle' || commandData.weatherData.data.weather[0].description==='light intensity drizzle' || commandData.weatherData.data.weather[0].description==='drizzle rain' || commandData.weatherData.data.weather[0].description==='heavy intensity drizzle'
 				 || commandData.weatherData.data.weather[0].description==='light intensity drizzle rain' || commandData.weatherData.data.weather[0].description==='shower rain and drizzle' || commandData.weatherData.data.weather[0].description==='heavy shower rain and drizzle' || commandData.weatherData.data.weather[0].description==='shower drizzle'){
 				setBg('body-drizzle')
@@ -207,6 +210,11 @@ useEffect(()=>{
 			.then(res => res.json())
 			.then(result => {
 			setInfo(result)	
+			if(result.main.humidity>90 || result.weather[0].description==='heavy intensity rain' || result.weather[0].description==='light rain' || result.weather[0].description==='moderate rain'
+				|| result.weather[0].description==='very heavy rain'|| result.weather[0].description==='extreme rain'|| result.weather[0].description==='freezing rain' || result.weather[0].description==='light intensity shower rain'
+				 || result.weather[0].description==='shower rain' || result.weather[0].description==='ragged shower rain' || result.weather[0].description==='heavy intensity shower rain'){
+				setBg('body-rain')
+			}
 			if(result.main.temp<=10){
 				setBg('body-snow')
 			}
@@ -233,11 +241,7 @@ useEffect(()=>{
 			  || result.weather[0].description==='Tornado' ){
 				setBg('body-mist')
 			}
-			if(result.main.humidity>90 || result.weather[0].description==='heavy intensity rain' || result.weather[0].description==='light rain' || result.weather[0].description==='moderate rain'
-				|| result.weather[0].description==='very heavy rain'|| result.weather[0].description==='extreme rain'|| result.weather[0].description==='freezing rain' || result.weather[0].description==='light intensity shower rain'
-				 || result.weather[0].description==='shower rain' || result.weather[0].description==='ragged shower rain' || result.weather[0].description==='heavy intensity shower rain'){
-				setBg('body-rain')
-			}
+			
 			if(result.weather[0].description==='drizzle' || result.weather[0].description==='light intensity drizzle' || result.weather[0].description==='drizzle rain' || result.weather[0].description==='heavy intensity drizzle'
 				 || result.weather[0].description==='light intensity drizzle rain' || result.weather[0].description==='shower rain and drizzle' || result.weather[0].description==='heavy shower rain and drizzle' || result.weather[0].description==='shower drizzle'){
 				setBg('body-drizzle')
