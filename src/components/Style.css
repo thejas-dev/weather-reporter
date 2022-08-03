@@ -69,12 +69,27 @@
 	background-repeat: no-repeat;
 }
 .body-rain{
-	background: url(../images/rain.jpg);
+	background: url(../images/rain.jpeg);
 	background-size: cover;
 
 	background-position: center;
 	background-repeat: no-repeat;
 }
+.body-drizzle{
+	background: url(../images/drizzle.jpeg);
+	background-size: cover;
+
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.body-thunder{
+	background: url(../images/thunder.jpeg);
+	background-size: cover;
+
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
 .main{
 	min-height: 100vh;
 	background-image: linear-gradient(to bottom , rgb(0,0,0,0.2), rgb(0,0,0,0.75));

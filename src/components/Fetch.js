@@ -52,10 +52,14 @@ const searchdata = evt =>{
 			if(result.main.temp>=45 && result.main.temp<=60){
 				setBg('body-vhot2')
 			}
-			if( result.weather[0].description==='mist'){
+			if( result.weather[0].description==='Mist' || result.weather[0].description==='Smoke' || result.weather[0].description==='Haze' || result.weather[0].description==='Ash'
+			 || result.weather[0].description==='Dust' || result.weather[0].description==='Fog' || result.weather[0].description==='Sand' || result.weather[0].description==='Squall'
+			  || result.weather[0].description==='Tornado' ){
 				setBg('body-mist')
 			}
-			if(result.main.humidity>90 || result.weather[0].description==='heavy intensity rain' ){
+			if(result.main.humidity>90 || result.weather[0].description==='heavy intensity rain' || result.weather[0].description==='light rain' || result.weather[0].description==='moderate rain'
+				|| result.weather[0].description==='very heavy rain'|| result.weather[0].description==='extreme rain'|| result.weather[0].description==='freezing rain' || result.weather[0].description==='light intensity shower rain'
+				 || result.weather[0].description==='shower rain' || result.weather[0].description==='ragged shower rain' || result.weather[0].description==='heavy intensity shower rain'){
 				setBg('body-rain')
 			}
 			
