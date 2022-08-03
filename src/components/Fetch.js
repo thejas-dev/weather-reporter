@@ -168,6 +168,7 @@ useEffect(()=>{
 			}
 		})
 		},3000)
+		setLat(null)
 		
 	}
 
