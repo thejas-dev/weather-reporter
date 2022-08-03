@@ -144,11 +144,14 @@ function ShowPosition(position){
 }
 useEffect(()=>{
 		if(lat!=null){
-		fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${api.key}`)
-		.then(res => res.json())
-		.then(result => {
+		setTimeout(()=>{
+			fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${api.key}`)
+			.then(res => res.json())
+			.then(result => {
 			setInfo(result)	
 		})
+		},3000)
+		
 	}
 
 },[lat])
