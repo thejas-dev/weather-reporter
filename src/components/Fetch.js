@@ -124,15 +124,16 @@ useEffect(()=>{
 	  
 },[])
 
-if(window.navigator.geolocation){
-	navigator.geolocation.getCurrentPosition(ShowPosition)
-}
-function ShowPosition(position){
-	setLat(position.coords.latitude);
-	setLon(position.coords.longitude);
-	
-}
+
 useEffect(()=>{
+	if(window.navigator.geolocation){
+	navigator.geolocation.getCurrentPosition(ShowPosition)
+	}
+    function ShowPosition(position){
+		setLat(position.coords.latitude);
+		setLon(position.coords.longitude);
+	
+		}
 		if(lat!=null){
 		setTimeout(()=>{
 			fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${api.key}`)
