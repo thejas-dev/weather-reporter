@@ -121,17 +121,7 @@ useEffect(()=>{
   },
   rootEl: document.getElementById("alan-btn"),
   });
-
-
-
-		
-		
-	
-	
-	
-
-
-		  
+	  
 },[])
 
 if(window.navigator.geolocation){
