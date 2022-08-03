@@ -9,12 +9,14 @@ const api = {
 	base : "https://api.openweathermap.org/data/2.5/"
 }
 
-if(window.navigator.geolocation){
-	console.log("location accessed")
-}
 
 
 function Fetch(){
+
+const [lat,setLat] = useState(null)
+const [lon,setLon] = useState(null)
+
+
 
 const [search,setSearch] = useState('San francisco');
 const [info,setInfo] = useState({});
@@ -27,10 +29,8 @@ const searchdata = evt =>{
 		fetch(`${api.base}weather?q=${search}&units=metric&APPID=${api.key}`)
 		.then(res => res.json())
 		.then(result => {
-			
 			setSearch('');
 			setInfo(result)
-			console.log(result)
 			if(result.main.temp>=0 && result.main.temp<=10){
 				setBg('body-snow')
 			}
@@ -69,7 +69,6 @@ useEffect(()=>{
 		.then(res => res.json())
 		.then(result => {
 			setInfo(result)
-			console.log(info)
 			if(result.main.temp>=0 && result.main.temp<=10){
 				setBg('body-snow')
 			}
@@ -123,34 +122,7 @@ useEffect(()=>{
   rootEl: document.getElementById("alan-btn"),
   });
 
-setTimeout(()=>{
-	if(navigator.geolocation){
-		navigator.geolocation.getCurrentPosition(ShowPosition)
-	}else{
-		console.log("browser not supported")
-	}
-	
-	 function ShowPosition(position){
 
-		
-		let lat = position.coords.latitude;
-		let lon = position.coords.longitude;
-		console.log(lat)
-		console.log(lon)
-		fetch(`http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${api.key}`)
-		.then(res => res.json())
-		.then(result => {
-			setCity(result.city.name)
-			console.log(result)
-			fetch(`${api.base}weather?q=${result.city.name}&units=metric&APPID=${api.key}`)
-			.then(res=>res.json())
-			.then(result=>{
-				setInfo(result)
-				console.log(result)
-			})
-		})
-	}
-},7000)
 
 		
 		
@@ -162,6 +134,24 @@ setTimeout(()=>{
 		  
 },[])
 
+if(window.navigator.geolocation){
+	navigator.geolocation.getCurrentPosition(ShowPosition)
+}
+function ShowPosition(position){
+	setLat(position.coords.latitude);
+	setLon(position.coords.longitude);
+	
+}
+useEffect(()=>{
+		if(lat!=null){
+		fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${api.key}`)
+		.then(res => res.json())
+		.then(result => {
+			setInfo(result)	
+		})
+	}
+
+},[lat])
 
 
 
