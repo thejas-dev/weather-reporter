@@ -31,7 +31,7 @@ const searchdata = evt =>{
 		.then(result => {
 			setSearch('');
 			setInfo(result)
-			if(result.main.temp>=0 && result.main.temp<=10){
+			if(result.main.temp<=10){
 				setBg('body-snow')
 			}
 			if(result.main.temp>=10 && result.main.temp<=20){
@@ -61,6 +61,15 @@ const searchdata = evt =>{
 				|| result.weather[0].description==='very heavy rain'|| result.weather[0].description==='extreme rain'|| result.weather[0].description==='freezing rain' || result.weather[0].description==='light intensity shower rain'
 				 || result.weather[0].description==='shower rain' || result.weather[0].description==='ragged shower rain' || result.weather[0].description==='heavy intensity shower rain'){
 				setBg('body-rain')
+			}
+			if(result.weather[0].description==='drizzle' || result.weather[0].description==='light intensity drizzle' || result.weather[0].description==='drizzle rain' || result.weather[0].description==='heavy intensity drizzle'
+				 || result.weather[0].description==='light intensity drizzle rain' || result.weather[0].description==='shower rain and drizzle' || result.weather[0].description==='heavy shower rain and drizzle' || result.weather[0].description==='shower drizzle'){
+				setBg('body-drizzle')
+			}
+			if(result.weather[0].description==='thunderstorm' || result.weather[0].description==='thunderstorm with light rain' || result.weather[0].description==='thunderstorm with rain' || result.weather[0].description==='thunderstorm with heavy rain' || result.weather[0].description==='light thunderstorm'
+				 || result.weather[0].description==='heavy thunderstorm' || result.weather[0].description==='ragged thunderstorm' || result.weather[0].description==='thunderstorm with light drizzle'
+				  || result.weather[0].description==='thunderstorm with drizzle' || result.weather[0].description==='thunderstorm with heavy drizzle'){
+				setBg('body-thunder')
 			}
 			
 		});
