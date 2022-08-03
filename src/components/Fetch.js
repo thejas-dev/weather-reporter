@@ -133,6 +133,46 @@ useEffect(()=>{
       	console.log(commandData);
         // Call the client code that will react to the received command
         setInfo(commandData.weatherData.data);
+        if(commandData.weatherData.data.main.temp<=10){
+				setBg('body-snow')
+			}
+			if(commandData.weatherData.data.main.temp>=10 && commandData.weatherData.data.main.temp<=20){
+				setBg('body-cool')
+			}
+			if(commandData.weatherData.data.main.temp>=20 && commandData.weatherData.data.main.temp<=30){
+				setBg('body-cool2')
+			}
+			if(commandData.weatherData.data.main.temp>=30 && commandData.weatherData.data.main.temp<=35){
+				setBg('body-hot')
+			}
+			if(commandData.weatherData.data.main.temp>=35 && commandData.weatherData.data.main.temp<=40){
+				setBg('body-hot2')
+			}
+			if(commandData.weatherData.data.main.temp>=40 && commandData.weatherData.data.main.temp<=45){
+				setBg('body-vhot')
+			}
+			if(commandData.weatherData.data.main.temp>=45 && commandData.weatherData.data.main.temp<=60){
+				setBg('body-vhot2')
+			}
+			if( commandData.weatherData.data.weather[0].description==='Mist' || commandData.weatherData.data.weather[0].description==='Smoke' || commandData.weatherData.data.weather[0].description==='Haze' || commandData.weatherData.data.weather[0].description==='Ash'
+			 || commandData.weatherData.data.weather[0].description==='Dust' || commandData.weatherData.data.weather[0].description==='Fog' || commandData.weatherData.data.weather[0].description==='Sand' || commandData.weatherData.data.weather[0].description==='Squall'
+			  || commandData.weatherData.data.weather[0].description==='Tornado' ){
+				setBg('body-mist')
+			}
+			if(commandData.weatherData.data.main.humidity>90 || commandData.weatherData.data.weather[0].description==='heavy intensity rain' || commandData.weatherData.data.weather[0].description==='light rain' || commandData.weatherData.data.weather[0].description==='moderate rain'
+				|| commandData.weatherData.data.weather[0].description==='very heavy rain'|| commandData.weatherData.data.weather[0].description==='extreme rain'|| commandData.weatherData.data.weather[0].description==='freezing rain' || commandData.weatherData.data.weather[0].description==='light intensity shower rain'
+				 || commandData.weatherData.data.weather[0].description==='shower rain' || commandData.weatherData.data.weather[0].description==='ragged shower rain' || commandData.weatherData.data.weather[0].description==='heavy intensity shower rain'){
+				setBg('body-rain')
+			}
+			if(commandData.weatherData.data.weather[0].description==='drizzle' || commandData.weatherData.data.weather[0].description==='light intensity drizzle' || commandData.weatherData.data.weather[0].description==='drizzle rain' || commandData.weatherData.data.weather[0].description==='heavy intensity drizzle'
+				 || commandData.weatherData.data.weather[0].description==='light intensity drizzle rain' || commandData.weatherData.data.weather[0].description==='shower rain and drizzle' || commandData.weatherData.data.weather[0].description==='heavy shower rain and drizzle' || commandData.weatherData.data.weather[0].description==='shower drizzle'){
+				setBg('body-drizzle')
+			}
+			if(commandData.weatherData.data.weather[0].description==='thunderstorm' || commandData.weatherData.data.weather[0].description==='thunderstorm with light rain' || commandData.weatherData.data.weather[0].description==='thunderstorm with rain' || commandData.weatherData.data.weather[0].description==='thunderstorm with heavy rain' || commandData.weatherData.data.weather[0].description==='light thunderstorm'
+				 || commandData.weatherData.data.weather[0].description==='heavy thunderstorm' || commandData.weatherData.data.weather[0].description==='ragged thunderstorm' || commandData.weatherData.data.weather[0].description==='thunderstorm with light drizzle'
+				  || commandData.weatherData.data.weather[0].description==='thunderstorm with drizzle' || commandData.weatherData.data.weather[0].description==='thunderstorm with heavy drizzle'){
+				setBg('body-thunder')
+			}
       }
     },
     onButtonState: async function(status) {
